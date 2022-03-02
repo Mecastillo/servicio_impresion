@@ -1,0 +1,6 @@
+---
+- hosts: webservers
+  become: yes
+  tasks:
+    - name: DESISTALAR CUPS
+      apt: name=cups update_cache=yes state=absent

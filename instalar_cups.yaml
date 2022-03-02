@@ -1,0 +1,11 @@
+---
+- hosts: webservers
+  become: yes
+  tasks:
+    - name: INSTALAR CUPS
+      apt: name=cups update_cache=yes state=latest
+      notify:
+        - REINICIAR CUPS
+  handlers:
+    - name: REINICIAR CUPS
+      service: name=cups state=restarted
